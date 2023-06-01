@@ -1,11 +1,7 @@
 <template>
   <div>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group
-        id="input-group-1"
-        label="Title:"
-        label-for="input-1"
-      >
+      <b-form-group id="input-group-1" label="Title:" label-for="input-1">
         <b-form-input
           id="input-1"
           v-model="form.title"
@@ -15,7 +11,11 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label="Number of episodes:" label-for="input-2">
+      <b-form-group
+        id="input-group-2"
+        label="Number of episodes:"
+        label-for="input-2"
+      >
         <b-form-input
           id="input-2"
           v-model="form.episodes"
@@ -65,7 +65,7 @@ export default {
       statusOptions: [
         { text: "Select One", value: null },
         "OnGoing",
-        "Finished"
+        "Finished",
       ],
       show: true,
     };
@@ -74,13 +74,13 @@ export default {
     onSubmit(event) {
       event.preventDefault();
       alert(JSON.stringify(this.form));
-
+      this.$store.dispatch("addAnime", { ...this.form });
     },
     onReset(event) {
       event.preventDefault();
       // Reset our form values
       this.form.title = "";
-      this.form.episodes = 0
+      this.form.episodes = 0;
       this.form.status = null;
       this.form.imgUrl = "";
       // Trick to reset/clear native browser form validation state
