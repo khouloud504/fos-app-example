@@ -2,11 +2,11 @@
   <div>
     <b-navbar type="dark" variant="dark">
       <b-navbar-nav>
-        <b-nav-item href="#">
-          Home
+        <b-nav-item>
+          <router-link to="/" class="nav-link">Home</router-link>
         </b-nav-item>
-        <b-nav-item href="#">
-          New Anime
+        <b-nav-item>
+          <router-link to="/new-anime" class="nav-link">New Anime</router-link>
         </b-nav-item>
       </b-navbar-nav>
     </b-navbar>
