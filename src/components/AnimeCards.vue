@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4" v-for="(anime,index) in animeList" :key="index">
-      <anime-card :anime="anime"></anime-card>
+    <div class="col-12 col-md-6 col-lg-4" v-for="(anime, index) in animeList" :key="index">
+      <anime-card :anime="anime" @save-anime="saveAnime"></anime-card>
     </div>
   </div>
 </template>
@@ -16,6 +16,11 @@ export default {
   },
   computed: {
     ...mapGetters(["animeList"]),
+  },
+  methods: {
+    saveAnime(editedAnime) {
+      this.$store.dispatch("updateAnime", editedAnime);
+    },
   },
 };
 </script>
