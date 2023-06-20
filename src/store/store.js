@@ -11,10 +11,13 @@ const mutations = {
     state.animeList = animeList;
   },
   updateAnime(state, editedAnime) {
-    const index = state.animeList.findIndex((anime) => anime.title === editedAnime.title);
+    console.log(state.animeList);
+    let temp = {...editedAnime};
+    const index = state.animeList.findIndex((anime) => anime.title == temp.title);
     if (index !== -1) {
       state.animeList.splice(index, 1, editedAnime);
     }
+    console.log(state.animeList);
   },
 };
 
